@@ -1,0 +1,6 @@
+# Intellij Idea
+/.idea/
+
+# Yarn
+/node_modules/
+/dist/
