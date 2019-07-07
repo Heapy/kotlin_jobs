@@ -9,7 +9,7 @@ module.exports = function (options = {}) {
   const NODE_ENV = options.NODE_ENV;
   const SOURCE_MAP = options.SOURCE_MAP;
   const BUILD_TIME = options.BUILD_TIME || new Date().toISOString();
-  const DIST = path.resolve(__dirname, "docs");
+  const DIST = path.resolve(__dirname, "dist");
   const APP = path.resolve(__dirname, "app");
 
   // Log as error, so this will not be part of stats.json.
@@ -28,7 +28,7 @@ Build started with following configuration:
     output: {
       path: DIST,
       filename: "[name].js?[contenthash]",
-      publicPath: "./"
+      publicPath: ""
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js"]

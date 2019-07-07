@@ -33,6 +33,7 @@ function validate(values: KotlinJobsFormValues): FormErrors {
   if (!values.title) errors.title = "Title is required";
   if (!values.location) errors.location = "Location is required";
   if (!values.company) errors.company = "Company is required";
+  if (!values.salary) errors.salary = "Salary is required";
   if (!values.contact) errors.contact = "Contact is required";
   if (!values.description) errors.description = "Description is required";
   if (values.description && values.description.length > 1500) errors.description = `The description must be less than 1500 characters. Currently it is ${values.description.length}`;
@@ -154,7 +155,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
               </a>
             </p>
             <p className="control">
-              <Field className="input" type="text" name="contact" placeholder="Kotlin"/>
+              <Field className="input" type="text" name="contact" placeholder="Kotliner"/>
               <ErrorHelper name="contact"/>
             </p>
           </div>
@@ -239,6 +240,14 @@ function Container() {
           )}
         </div>
       </div>
+      <footer className="footer">
+        <div className="content has-text-centered">
+          <p>
+            The source code is licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPLv3</a>,
+            and available on <a href="https://github.com/heapy/kotlin_jobs">GitHub</a>.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
