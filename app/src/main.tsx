@@ -11,6 +11,8 @@ console.log("Build:", new Date(_BUILD_TIME).toLocaleString());
 const i18n = getBundleForLocale("ru");
 
 const initialValues: KotlinJobsFormValues = {
+  positionAgreement: false,
+  frequencyAgreement: false,
   title: "",
   company: "",
   location: "",
@@ -26,6 +28,8 @@ type FormErrors = Partial<{ -readonly [key in keyof KotlinJobsFormValues]: strin
 
 function validate(values: KotlinJobsFormValues): FormErrors {
   const errors: FormErrors = {};
+  if (!values.positionAgreement) errors.positionAgreement = i18n("Position-agreement-unchecked");
+  if (!values.frequencyAgreement) errors.frequencyAgreement = i18n("Frequency-agreement-unchecked");
   if (!values.title) errors.title = i18n("Title-is-required");
   if (!values.location) errors.location = i18n("Location-is-required");
   if (!values.company) errors.company = i18n("Company-is-required");
@@ -84,10 +88,25 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="field">
+        <label className="checkbox">
+          <Field component="input" type="checkbox" name="positionAgreement" autoFocus/>
+          <span style={{paddingLeft: 10}}>Я хочу опубликовать вакансию на позицию Kotlin разработчика</span>
+        </label>
+        <ErrorHelper name="positionAgreement"/>
+      </div>
+
+      <div className="field">
+        <label className="checkbox">
+          <Field component="input" type="checkbox" name="frequencyAgreement"/>
+          <span style={{paddingLeft: 10}}>Репост вакансии происходит с частотой в один месяц</span>
+        </label>
+        <ErrorHelper name="frequencyAgreement"/>
+      </div>
+
+      <div className="field">
         <label className="label">Вакансия *</label>
         <div className="control">
-          <Field component="input" className="input" type="text" name="title" placeholder="Senior Backend Engineer"
-                 autoFocus/>
+          <Field component="input" className="input" type="text" name="title" placeholder="Senior Backend Engineer"/>
           <ErrorHelper name="title"/>
         </div>
       </div>
@@ -190,6 +209,8 @@ function ErrorHelper(props: ErrorMessageProps) {
 }
 
 interface KotlinJobsFormValues {
+  readonly positionAgreement: boolean;
+  readonly frequencyAgreement: boolean;
   readonly title: string;
   readonly location: string;
   readonly company: string;
