@@ -40,7 +40,10 @@ Build started with following configuration:
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "ts-loader"
-      }]
+      }, {
+        test: /\.fluent$/,
+        use: "raw-loader",
+      },]
     },
     plugins: createListOfPlugins()
   };
