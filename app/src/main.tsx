@@ -1,18 +1,14 @@
 import * as React from "react";
 import {useState} from "react";
 import * as ReactDOM from "react-dom";
-import {
-  ErrorMessage,
-  ErrorMessageProps,
-  Field,
-  FormikBag,
-  FormikProps,
-  withFormik
-} from "formik";
+import {ErrorMessage, ErrorMessageProps, Field, FormikBag, FormikProps, withFormik} from "formik";
+import {getBundleForLocale} from "./i18n/fluent";
 
 declare var _BUILD_TIME: string;
 
 console.log("Build:", new Date(_BUILD_TIME).toLocaleString());
+
+const i18n = getBundleForLocale("ru");
 
 const initialValues: KotlinJobsFormValues = {
   title: "",
@@ -30,13 +26,15 @@ type FormErrors = Partial<{ -readonly [key in keyof KotlinJobsFormValues]: strin
 
 function validate(values: KotlinJobsFormValues): FormErrors {
   const errors: FormErrors = {};
-  if (!values.title) errors.title = "Title is required";
-  if (!values.location) errors.location = "Location is required";
-  if (!values.company) errors.company = "Company is required";
-  if (!values.salary) errors.salary = "Salary is required";
-  if (!values.contact) errors.contact = "Contact is required";
-  if (!values.description) errors.description = "Description is required";
-  if (values.description && values.description.length > 1500) errors.description = `The description must be less than 1500 characters. Currently it is ${values.description.length}`;
+  if (!values.title) errors.title = i18n("Title-is-required");
+  if (!values.location) errors.location = i18n("Location-is-required");
+  if (!values.company) errors.company = i18n("Company-is-required");
+  if (!values.salary) errors.salary = i18n("Salary-is-required");
+  if (!values.contact) errors.contact = i18n("Contact-is-required");
+  if (!values.description) errors.description = i18n("Description-is-required");
+  if (values.description && values.description.length > 1500) {
+    errors.description = i18n("Description-max-length", {"length": values.description.length});
+  }
   return errors;
 }
 

@@ -1,0 +1,7 @@
+Title-is-required = Вакансия обязательна к заполнению
+Location-is-required = Локация обязательна к заполнению
+Company-is-required = Компания обязательна к заполнению
+Salary-is-required = Зарплатная вилка обязательна к заполнению
+Contact-is-required = Контакт обязателен к заполнению
+Description-is-required = Описание обязательно к заполнению
+Description-max-length = Максимальный размер описания: 1500 символов. Текущий размер:  { $length }

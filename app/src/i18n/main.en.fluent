@@ -1,0 +1,7 @@
+Title-is-required = Title is required
+Location-is-required = Location is required
+Company-is-required = Company is required
+Salary-is-required = Salary is required
+Contact-is-required = Contact is required
+Description-is-required = Description is required
+Description-max-length = The description must be less than 1500 characters. Currently it is { $length }
