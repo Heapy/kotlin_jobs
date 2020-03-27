@@ -10,4 +10,4 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/deploy@morty
 
 echo "Sync with remote folder..."
-rsync -r --delete-after --quiet "${TRAVIS_BUILD_DIR}/dist/" deploy@heapy.io:~/files/kotlin_jobs
+rsync -r --delete-after --quiet "${TRAVIS_BUILD_DIR}/dist/" deploy@heapy.io:~/files/heapy.io/kotlin_jobs
