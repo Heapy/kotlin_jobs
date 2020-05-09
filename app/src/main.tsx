@@ -251,9 +251,7 @@ function Container() {
         <div className="content">
           {text && (
             <React.Fragment>
-              <pre>
-                {text}
-              </pre>
+              <textarea rows={30} className="textarea" contentEditable="false" value={text}/>
               <p>Скопируйте этот фрагмент и отправьте одному из модераторов</p>
             </React.Fragment>
           )}
