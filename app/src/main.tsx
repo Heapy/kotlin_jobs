@@ -98,7 +98,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       <div className="field">
         <label className="checkbox">
           <Field component="input" type="checkbox" name="frequencyAgreement"/>
-          <span style={{paddingLeft: 10}}>Репост вакансии происходит с частотой в один месяц</span>
+          <span style={{paddingLeft: 10}}>Репост вакансии происходит с частотой в один месяц. Цена повторного размещения в течение месяца - 30€, оплата через <a href="https://opencollective.com/kotlin-community">Kotlin Community Telegram OpenCollective</a>.</span>
         </label>
         <ErrorHelper name="frequencyAgreement"/>
       </div>
