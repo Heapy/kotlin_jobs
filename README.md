@@ -1,6 +1,6 @@
 # Kotlin Jobs Builder
 
-[![Build Status](https://travis-ci.com/Heapy/kotlin_jobs.svg?branch=master)](https://travis-ci.com/Heapy/kotlin_jobs)
+[![Build](https://github.com/Heapy/kotlin_jobs/actions/workflows/build.yml/badge.svg)](https://github.com/Heapy/kotlin_jobs/actions/workflows/build.yml)
 
 ```bash
 yarn run start

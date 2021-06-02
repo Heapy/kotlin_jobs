@@ -3,6 +3,7 @@ import {useState} from "react";
 import * as ReactDOM from "react-dom";
 import {ErrorMessage, ErrorMessageProps, Field, FormikBag, FormikProps, withFormik} from "formik";
 import {getBundleForLocale} from "./i18n/fluent";
+import "bulma/css/bulma.min.css"
 
 declare var _BUILD_TIME: string;
 
@@ -251,8 +252,8 @@ function Container() {
         <div className="content">
           {text && (
             <React.Fragment>
-              <textarea rows={30} className="textarea" contentEditable="false" value={text}/>
               <p>Скопируйте этот фрагмент и отправьте одному из модераторов</p>
+              <textarea rows={30} className="textarea" contentEditable="false" value={text}/>
             </React.Fragment>
           )}
         </div>

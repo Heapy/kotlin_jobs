@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = function (options = {}) {
@@ -43,7 +44,14 @@ Build started with following configuration:
       }, {
         test: /\.fluent$/,
         use: "raw-loader",
-      },]
+      }, {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, {loader: "css-loader"}]
+      }, {
+        test: /\.js/,
+        include: /@fluent[\\/](bundle|langneg|syntax)[\\/]/,
+        type: "javascript/auto",
+      }, ]
     },
     plugins: createListOfPlugins()
   };
@@ -54,19 +62,21 @@ Build started with following configuration:
         filename: "index.html",
         template: path.resolve(APP, "index.html")
       }),
-      new CopyWebpackPlugin([{
-        from: path.resolve(APP, "kotlin_jobs"),
-        to: DIST
-      }, {
-        from: path.resolve("node_modules", "bulma", "css", "bulma.min.css"),
-        to: DIST
-      }]),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(APP, "kotlin_jobs"),
+            to: DIST
+          }
+        ]
+      }),
       new webpack.DefinePlugin({
         "process.env": {
           "NODE_ENV": JSON.stringify(NODE_ENV)
         },
         _BUILD_TIME: JSON.stringify(BUILD_TIME)
-      })
+      }),
+      new MiniCssExtractPlugin()
     ];
   }
 };
