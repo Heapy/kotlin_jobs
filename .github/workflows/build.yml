@@ -12,7 +12,6 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install --check-cache
-        working-directory: app-frontend
   build:
     name: "Build on JNode.JS 14.x"
     runs-on: ubuntu-latest
