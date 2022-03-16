@@ -37,7 +37,7 @@ function validate(values: KotlinJobsFormValues): FormErrors {
   if (!values.salary) errors.salary = i18n("Salary-is-required");
   if (!values.contact) errors.contact = i18n("Contact-is-required");
   if (!values.description) errors.description = i18n("Description-is-required");
-  if (values.description && values.description.length > 1500) {
+  if (values.description && values.description.length > 1000) {
     errors.description = i18n("Description-max-length", {"length": values.description.length});
   }
   return errors;
@@ -88,22 +88,6 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="field">
-        <label className="checkbox">
-          <Field component="input" type="checkbox" name="positionAgreement" autoFocus/>
-          <span style={{paddingLeft: 10}}>Я хочу опубликовать вакансию на позицию Kotlin разработчика</span>
-        </label>
-        <ErrorHelper name="positionAgreement"/>
-      </div>
-
-      <div className="field">
-        <label className="checkbox">
-          <Field component="input" type="checkbox" name="frequencyAgreement"/>
-          <span style={{paddingLeft: 10}}>Репост вакансии происходит с частотой в один месяц. Цена повторного размещения в течение месяца - 30€, оплата через <a href="https://opencollective.com/kotlin-community">Kotlin Community Telegram OpenCollective</a>.</span>
-        </label>
-        <ErrorHelper name="frequencyAgreement"/>
-      </div>
-
       <div className="field">
         <label className="label">Вакансия *</label>
         <div className="control">
@@ -188,6 +172,23 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
         </div>
       </div>
 
+      <div className="field">
+        <label className="checkbox">
+          <Field component="input" type="checkbox" name="positionAgreement" autoFocus/>
+          <span style={{paddingLeft: 10}}>Я публикую вакансию на позицию <b>Kotlin</b> разработчика</span>
+        </label>
+        <ErrorHelper name="positionAgreement"/>
+      </div>
+
+      <div className="field">
+        <label className="checkbox">
+          <Field component="input" type="checkbox" name="frequencyAgreement"/>
+          <span style={{paddingLeft: 10}}>Я соглашаюсь с тем что репост вакансии на бесплатной основе происходит с частотой в один месяц. Цена повторного размещения в течение месяца - 30€, оплата через <a
+            href="https://opencollective.com/kotlin-community">Kotlin Community Telegram OpenCollective</a>.</span>
+        </label>
+        <ErrorHelper name="frequencyAgreement"/>
+      </div>
+
       <div className="field is-grouped">
         <div className="control">
           <button type="submit"
@@ -239,11 +240,18 @@ function Container() {
       <div className="section">
         <div className="content">
           <h1>Kotlin Jobs Builder</h1>
+          <div className="block">
+            <div>
+              <p className="notification is-warning">
+                <a href="https://t.me/kotlin_jobs">@kotlin_jobs</a> временно не принимает вакансии юрлиц РФ и РБ
+              </p>
+            </div>
+
+          </div>
           <p>
             Пожалуйста заполните все поля формы и
             отправьте сгенерирование описание вакансии
-            <a href="https://t.me/HeapyHop"> @HeapyHop</a> или
-            <a href="https://t.me/Harmonizr"> @Harmonizr</a>
+            <a href="https://t.me/HeapyHop"> @HeapyHop</a>
           </p>
         </div>
         <div className="content">
