@@ -29,7 +29,7 @@ Build started with following configuration:
     output: {
       path: DIST,
       filename: "[name].js?[contenthash]",
-      publicPath: "/kotlin_jobs"
+      publicPath: NODE_ENV === "development" ? "/" : "/kotlin_jobs"
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js"]
