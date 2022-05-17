@@ -9,7 +9,7 @@ declare var _BUILD_TIME: string;
 
 console.log("Build:", new Date(_BUILD_TIME).toLocaleString());
 
-const i18n = getBundleForLocale("ru");
+const i18n = getBundleForLocale("en");
 
 const initialValues: KotlinJobsFormValues = {
   positionAgreement: false,
@@ -47,16 +47,16 @@ function onSubmit(
   values: KotlinJobsFormValues,
   formikBag: FormikBag<BuildFormProps, KotlinJobsFormValues>
 ): void {
-  formikBag.props.callback(`Вакансия: ${values.title}
-Локация: ${values.location}
-Компания: ${values.company}
-Формат работы: ${values.type}
-Занятость: ${values.occupation}
-Зарплатная вилка: ${values.salary}
+  formikBag.props.callback(`Vacancy: ${values.title}
+Location: ${values.location}
+Company: ${values.company}
+Workplace: ${values.type}
+Employment: ${values.occupation}
+Salary fork: ${values.salary}
 
 ${values.description}
 
-Контакт: @${values.contact}
+Contact: @${values.contact}
 `);
   formikBag.setSubmitting(false);
   scrollToRendered();
@@ -89,7 +89,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="field">
-        <label className="label">Вакансия *</label>
+        <label className="label">Vacancy *</label>
         <div className="control">
           <Field component="input" className="input" type="text" name="title" placeholder="Senior Backend Engineer"/>
           <ErrorHelper name="title"/>
@@ -97,27 +97,29 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       </div>
 
       <div className="field">
-        <label className="label">Локация *</label>
+        <label className="label">Location *</label>
         <div className="control">
-          <Field className="input" type="text" name="location" placeholder="Украина, Киев"/>
+          <Field className="input" type="text" name="location" placeholder="Ukraine, Kyiv"/>
           <ErrorHelper name="location"/>
         </div>
       </div>
 
       <div className="field">
-        <label className="label">Компания *</label>
+        <label className="label">Company *</label>
         <div className="control">
-          <Field className="input" type="text" name="company" placeholder="KoSolutions (https://kosolutions.com)"/>
+          <Field className="input" type="text" name="company" placeholder="JetBrains (https://jetbrains.com)"/>
           <ErrorHelper name="company"/>
         </div>
       </div>
 
       <div className="field">
-        <label className="label">Формат работы</label>
+        <label className="label">Workplace</label>
         <div className="control">
           <div className="select">
             <Field component="select" name="type">
               <option value="Office">Office</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Flexible">Flexible</option>
               <option value="Remote">Remote</option>
             </Field>
           </div>
@@ -126,7 +128,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       </div>
 
       <div className="field">
-        <label className="label">Занятость</label>
+        <label className="label">Employment</label>
         <div className="control">
           <div className="select">
             <Field component="select" name="occupation">
@@ -140,7 +142,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       </div>
 
       <div className="field">
-        <label className="label">Зарплатная вилка *</label>
+        <label className="label">Salary fork *</label>
         <div className="control">
           <Field className="input" type="text" name="salary" placeholder="2000$-3000$"/>
           <ErrorHelper name="salary"/>
@@ -148,7 +150,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       </div>
 
       <div className="field">
-        <label className="label">Ник в Telegram *</label>
+        <label className="label">Nickname in Telegram *</label>
         <div className="field-body">
           <div className="field has-addons">
             <p className="control">
@@ -165,9 +167,9 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       </div>
 
       <div className="field">
-        <label className="label">Описание *</label>
+        <label className="label">Description *</label>
         <div className="control">
-          <Field component="textarea" name="description" className="textarea" placeholder="Описание в свободной форме"/>
+          <Field component="textarea" name="description" className="textarea" placeholder="Keep it short and informative. Max 1000 symbols."/>
           <ErrorHelper name="description"/>
         </div>
       </div>
@@ -175,7 +177,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       <div className="field">
         <label className="checkbox">
           <Field component="input" type="checkbox" name="positionAgreement" autoFocus/>
-          <span style={{paddingLeft: 10}}>Я публикую вакансию на позицию <b>Kotlin</b> разработчика</span>
+          <span style={{paddingLeft: 10}}>I am posting a vacancy for the position of <b>Kotlin</b> developer</span>
         </label>
         <ErrorHelper name="positionAgreement"/>
       </div>
@@ -183,7 +185,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       <div className="field">
         <label className="checkbox">
           <Field component="input" type="checkbox" name="frequencyAgreement"/>
-          <span style={{paddingLeft: 10}}>Я соглашаюсь с тем что репост вакансии на бесплатной основе происходит с частотой в один месяц. Цена повторного размещения в течение месяца - 30€, оплата через <a
+          <span style={{paddingLeft: 10}}>I agree that the repost of the vacancy on a free basis occurs with a frequency of one month. Vacancy re-placement price within a month - 50€, payment via <a
             href="https://opencollective.com/kotlin-community">Kotlin Community Telegram OpenCollective</a>.</span>
         </label>
         <ErrorHelper name="frequencyAgreement"/>
@@ -194,7 +196,7 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
           <button type="submit"
                   className="button is-primary"
                   disabled={isSubmitting || !isValid || !dirty}>
-            Сгенерировать
+            Generate
           </button>
         </div>
       </div>
@@ -249,8 +251,8 @@ function Container() {
 
           </div>
           <p>
-            Пожалуйста заполните все поля формы и
-            отправьте сгенерирование описание вакансии
+            Please fill in all fields of the form and
+            send the generated job description to
             <a href="https://t.me/HeapyHop"> @HeapyHop</a>
           </p>
         </div>
@@ -260,7 +262,7 @@ function Container() {
         <div className="content">
           {text && (
             <React.Fragment>
-              <p>Скопируйте этот фрагмент и отправьте одному из модераторов</p>
+              <p>Copy this snippet and send it to one of the moderators</p>
               <textarea rows={30} className="textarea" contentEditable="false" value={text}/>
             </React.Fragment>
           )}
