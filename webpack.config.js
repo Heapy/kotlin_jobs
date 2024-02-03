@@ -80,4 +80,3 @@ Build started with following configuration:
     ];
   }
 };
-

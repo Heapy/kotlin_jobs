@@ -7,30 +7,31 @@
   },
   "license": "GPL-3.0-only",
   "dependencies": {
-    "@fluent/bundle": "^0.17.1",
+    "@fluent/bundle": "^0.18.0",
     "bulma": "^0.9.4",
-    "formik": "^2.2.9",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "formik": "^2.4.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.34",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.4",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.1",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.6.0",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.52",
+    "@types/react-dom": "^18.2.18",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.10.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.8.0",
     "raw-loader": "^4.0.2",
-    "ts-loader": "^9.3.0",
-    "typescript": "4.6.4",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
+    "ts-loader": "^9.5.1",
+    "typescript": "5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "prestart": "yarn install",
     "prebuild": "yarn install",
     "start": "webpack --mode development --watch --env NODE_ENV=development --env SOURCE_MAP=eval-source-map",
     "build": "webpack --mode production --env NODE_ENV=production --env SOURCE_MAP=source-map"
-  }
+  },
+  "packageManager": "yarn@4.1.0"
 }
