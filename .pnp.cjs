@@ -1685,7 +1685,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/json5-npm-2.2.0-da49dc7cb5-d72ea87423.zip/node_modules/json5/",\
         "packageDependencies": [\
           ["json5", "npm:2.2.0"],\
-          ["minimist", "npm:1.2.5"]\
+          ["minimist", "npm:1.2.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1877,10 +1877,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["minimist", [\
-      ["npm:1.2.5", {\
-        "packageLocation": "./.yarn/cache/minimist-npm-1.2.5-ced0e1f617-9dff2c7d84.zip/node_modules/minimist/",\
+      ["npm:1.2.8", {\
+        "packageLocation": "./.yarn/cache/minimist-npm-1.2.8-d7af7b1dce-908491b6cc.zip/node_modules/minimist/",\
         "packageDependencies": [\
-          ["minimist", "npm:1.2.5"]\
+          ["minimist", "npm:1.2.8"]\
         ],\
         "linkType": "HARD"\
       }]\
