@@ -585,13 +585,6 @@ const RAW_RUNTIME_STATE =
           ["acorn", "npm:8.11.3"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:8.7.0", {\
-        "packageLocation": "./.yarn/cache/acorn-npm-8.7.0-ca81d350ee-0c437f0bef.zip/node_modules/acorn/",\
-        "packageDependencies": [\
-          ["acorn", "npm:8.7.0"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["acorn-import-assertions", [\
@@ -1460,7 +1453,7 @@ const RAW_RUNTIME_STATE =
           ["he", "npm:1.2.0"],\
           ["param-case", "npm:3.0.4"],\
           ["relateurl", "npm:0.2.7"],\
-          ["terser", "npm:5.12.1"]\
+          ["terser", "npm:5.27.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2525,13 +2518,6 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:0.7.3", {\
-        "packageLocation": "./.yarn/cache/source-map-npm-0.7.3-e3b4f7982a-89c388902a.zip/node_modules/source-map/",\
-        "packageDependencies": [\
-          ["source-map", "npm:0.7.3"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:0.7.4", {\
         "packageLocation": "./.yarn/cache/source-map-npm-0.7.4-bc8d018ab6-a0f7c9b797.zip/node_modules/source-map/",\
         "packageDependencies": [\
@@ -2614,17 +2600,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["terser", [\
-      ["npm:5.12.1", {\
-        "packageLocation": "./.yarn/cache/terser-npm-5.12.1-3fb0b15241-7a3d69307e.zip/node_modules/terser/",\
-        "packageDependencies": [\
-          ["terser", "npm:5.12.1"],\
-          ["acorn", "npm:8.7.0"],\
-          ["commander", "npm:2.20.3"],\
-          ["source-map", "npm:0.7.3"],\
-          ["source-map-support", "npm:0.5.21"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:5.27.0", {\
         "packageLocation": "./.yarn/cache/terser-npm-5.27.0-c18b449e2e-9b2c5cb007.zip/node_modules/terser/",\
         "packageDependencies": [\
