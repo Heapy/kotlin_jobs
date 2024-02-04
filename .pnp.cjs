@@ -1681,11 +1681,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["json5", [\
-      ["npm:2.2.0", {\
-        "packageLocation": "./.yarn/cache/json5-npm-2.2.0-da49dc7cb5-d72ea87423.zip/node_modules/json5/",\
+      ["npm:2.2.3", {\
+        "packageLocation": "./.yarn/cache/json5-npm-2.2.3-9962c55073-1db67b853f.zip/node_modules/json5/",\
         "packageDependencies": [\
-          ["json5", "npm:2.2.0"],\
-          ["minimist", "npm:1.2.5"]\
+          ["json5", "npm:2.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1741,7 +1740,7 @@ const RAW_RUNTIME_STATE =
           ["loader-utils", "npm:2.0.0"],\
           ["big.js", "npm:5.2.2"],\
           ["emojis-list", "npm:3.0.0"],\
-          ["json5", "npm:2.2.0"]\
+          ["json5", "npm:2.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1872,15 +1871,6 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/webpack",\
           "webpack"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["minimist", [\
-      ["npm:1.2.5", {\
-        "packageLocation": "./.yarn/cache/minimist-npm-1.2.5-ced0e1f617-9dff2c7d84.zip/node_modules/minimist/",\
-        "packageDependencies": [\
-          ["minimist", "npm:1.2.5"]\
         ],\
         "linkType": "HARD"\
       }]\
