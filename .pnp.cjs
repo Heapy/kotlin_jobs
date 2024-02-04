@@ -1727,10 +1727,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["loader-utils", [\
-      ["npm:2.0.0", {\
-        "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.0-cf7d5aadbf-38352531f1.zip/node_modules/loader-utils/",\
+      ["npm:2.0.4", {\
+        "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.4-ba3800585b-28bd9af202.zip/node_modules/loader-utils/",\
         "packageDependencies": [\
-          ["loader-utils", "npm:2.0.0"],\
+          ["loader-utils", "npm:2.0.4"],\
           ["big.js", "npm:5.2.2"],\
           ["emojis-list", "npm:3.0.0"],\
           ["json5", "npm:2.2.3"]\
@@ -2224,7 +2224,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["raw-loader", "virtual:208979995192ca99ea16cdc14bedcf19a26091ff73d47894d916681fbf22af934af60e6f786f332e0536229e33907761ea9a62e38dd831168dabcc3043ec55c6#npm:4.0.2"],\
           ["@types/webpack", null],\
-          ["loader-utils", "npm:2.0.0"],\
+          ["loader-utils", "npm:2.0.4"],\
           ["schema-utils", "npm:3.0.0"],\
           ["webpack", "virtual:208979995192ca99ea16cdc14bedcf19a26091ff73d47894d916681fbf22af934af60e6f786f332e0536229e33907761ea9a62e38dd831168dabcc3043ec55c6#npm:5.90.1"]\
         ],\
