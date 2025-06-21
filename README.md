@@ -1,6 +1,6 @@
 # ⚠️ Project Archived
 
-Project will no longer maintained. [KotlinBy/awesome-kotlin](https://github.com/KotlinBy/awesome-kotlin) will have such functionality as part of it.
+Project is no longer maintained. [KotlinBy/awesome-kotlin](https://github.com/KotlinBy/awesome-kotlin) will have such functionality as part of it.
 
 # Kotlin Jobs Builder
 
@@ -8,5 +8,4 @@ Project will no longer maintained. [KotlinBy/awesome-kotlin](https://github.com/
 
 ```bash
 yarn run start
-xdg-open ./dist/index.html
 ```

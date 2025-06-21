@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useState} from "react";
-import * as ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client";
 import {ErrorMessage, ErrorMessageProps, Field, FormikBag, FormikProps, withFormik} from "formik";
 import {getBundleForLocale} from "./i18n/fluent";
 import "bulma/css/bulma.min.css"
@@ -16,6 +16,7 @@ const initialValues: KotlinJobsFormValues = {
   frequencyAgreement: false,
   title: "",
   company: "",
+  companyUrl: "",
   location: "",
   occupation: "Full-time",
   type: "Office",
@@ -29,11 +30,13 @@ type FormErrors = Partial<{ -readonly [key in keyof KotlinJobsFormValues]: strin
 
 function validate(values: KotlinJobsFormValues): FormErrors {
   const errors: FormErrors = {};
-  if (!values.positionAgreement) errors.positionAgreement = i18n("Position-agreement-unchecked");
-  if (!values.frequencyAgreement) errors.frequencyAgreement = i18n("Frequency-agreement-unchecked");
   if (!values.title) errors.title = i18n("Title-is-required");
   if (!values.location) errors.location = i18n("Location-is-required");
   if (!values.company) errors.company = i18n("Company-is-required");
+  if (!values.companyUrl) errors.companyUrl = i18n("Company-url-is-required");
+  if (values.companyUrl && !isValidUrl(values.companyUrl)) {
+    errors.companyUrl = i18n("Company-url-invalid");
+  }
   if (!values.salary) errors.salary = i18n("Salary-is-required");
   if (!values.contact) errors.contact = i18n("Contact-is-required");
   if (!values.description) errors.description = i18n("Description-is-required");
@@ -43,13 +46,22 @@ function validate(values: KotlinJobsFormValues): FormErrors {
   return errors;
 }
 
+function isValidUrl(url: string): boolean {
+  try {
+    const urlObj = new URL(url);
+    return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 function onSubmit(
   values: KotlinJobsFormValues,
   formikBag: FormikBag<BuildFormProps, KotlinJobsFormValues>
 ): void {
   formikBag.props.callback(`Vacancy: ${values.title}
 Location: ${values.location}
-Company: ${values.company}
+Company: ${values.company} ${values.companyUrl}
 Workplace: ${values.type}
 Employment: ${values.occupation}
 Salary fork: ${values.salary}
@@ -88,6 +100,9 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="notification is-warning">
+        <strong>Important:</strong> {i18n("Required-fields-warning")}
+      </div>
       <div className="field">
         <label className="label">Vacancy *</label>
         <div className="control">
@@ -107,8 +122,16 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
       <div className="field">
         <label className="label">Company *</label>
         <div className="control">
-          <Field className="input" type="text" name="company" placeholder="JetBrains (https://jetbrains.com)"/>
+          <Field className="input" type="text" name="company" placeholder="JetBrains"/>
           <ErrorHelper name="company"/>
+        </div>
+      </div>
+
+      <div className="field">
+        <label className="label">Company URL *</label>
+        <div className="control">
+          <Field className="input" type="url" name="companyUrl" placeholder="https://jetbrains.com"/>
+          <ErrorHelper name="companyUrl"/>
         </div>
       </div>
 
@@ -174,23 +197,6 @@ function BuildFormFields(props: FormikProps<KotlinJobsFormValues>) {
         </div>
       </div>
 
-      <div className="field">
-        <label className="checkbox">
-          <Field component="input" type="checkbox" name="positionAgreement" autoFocus/>
-          <span style={{paddingLeft: 10}}>I am posting a vacancy for the position of <b>Kotlin</b> developer</span>
-        </label>
-        <ErrorHelper name="positionAgreement"/>
-      </div>
-
-      <div className="field">
-        <label className="checkbox">
-          <Field component="input" type="checkbox" name="frequencyAgreement"/>
-          <span style={{paddingLeft: 10}}>I agree that the repost of the vacancy on a free basis occurs with a frequency of one month. Vacancy re-placement price within a month - 50€, payment via <a
-            href="https://opencollective.com/kotlin-community">Kotlin Community Telegram OpenCollective</a>.</span>
-        </label>
-        <ErrorHelper name="frequencyAgreement"/>
-      </div>
-
       <div className="field is-grouped">
         <div className="control">
           <button type="submit"
@@ -218,6 +224,7 @@ interface KotlinJobsFormValues {
   readonly title: string;
   readonly location: string;
   readonly company: string;
+  readonly companyUrl: string;
   readonly type: string;
   readonly occupation: string;
   readonly salary: string;
@@ -229,10 +236,11 @@ interface BuildFormProps {
   readonly callback: (text: string) => void;
 }
 
-ReactDOM.render(
-  <Container/>,
-  document.getElementById("root")
-);
+const container = document.getElementById("root");
+if (container) {
+  const root = createRoot(container);
+  root.render(<Container/>);
+}
 
 function Container() {
   const [text, setText] = useState("");
@@ -242,18 +250,11 @@ function Container() {
       <div className="section">
         <div className="content">
           <h1>Kotlin Jobs Builder</h1>
-          <div className="block">
-            <div>
-              <p className="notification is-warning">
-                <a href="https://t.me/kotlin_jobs">@kotlin_jobs</a> временно не принимает вакансии юрлиц РФ и РБ
-              </p>
-            </div>
 
-          </div>
           <p>
             Please fill in all fields of the form and
             send the generated job description to
-            <a href="https://t.me/HeapyHop"> @HeapyHop</a>
+            <a href="https://t.me/kotlin_jobs"> @kotlin_jobs</a>
           </p>
         </div>
         <div className="content">

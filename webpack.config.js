@@ -36,6 +36,16 @@ Build started with following configuration:
     },
     bail: false,
     devtool: SOURCE_MAP,
+    devServer: {
+      static: {
+        directory: DIST,
+      },
+      compress: true,
+      port: 8080,
+      hot: true,
+      open: true,
+      historyApiFallback: true
+    },
     module: {
       rules: [{
         test: /\.tsx?$/,
